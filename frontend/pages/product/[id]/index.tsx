@@ -3,12 +3,23 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Row, Col, Image, ListGroup, Button, Card } from 'react-bootstrap';
 import Rating from '../../../components/Rating';
-import products from '../../api/products';
+import axios from 'axios';
 
 const Product = () => {
+  const [product, setProduct] = useState([]);
   const router = useRouter();
   const { id } = router.query;
-  const product = products.find(p => p._id === id);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(
+        `http://localhost:8000/api/products/${id}`
+      );
+      setProduct(data);
+    };
+    fetchProduct();
+  }, []);
+
   return (
     <div>
       <Link href="/">
