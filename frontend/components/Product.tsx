@@ -12,8 +12,8 @@ const Product = ({ product }) => {
         <Image
           src={product.image}
           alt={product.name}
-          width={500}
-          height={400}
+          width={400}
+          height={500}
         />
       </Link>
       <Card.Body>
