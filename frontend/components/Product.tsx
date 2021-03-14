@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
 import Rating from './Rating';
-import styles from '../styles/Product.module.css';
+// import styles from '../styles/Product.module.css';
 
 const Product = ({ product }) => {
   return (
@@ -28,9 +28,7 @@ const Product = ({ product }) => {
             <Rating value={product.rating} text="Rating" color="#f8e825" />
           </div>
         </Card.Text>
-        <Card.Text as="h3" className={styles.h3}>
-          ${product.price}
-        </Card.Text>
+        <Card.Text as="h3">${product.price}</Card.Text>
       </Card.Body>
     </Card>
   );
